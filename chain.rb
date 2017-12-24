@@ -20,11 +20,16 @@ class Chain
   end
 
   def create_next_block(data:, previous_block:)
-    return Block.new(
+    block = Block.new(
       index: previous_block.index + 1,
       timestamp: DateTime.now,
       data: data,
       previous_hash: previous_block.hash
     )
+
+    puts "Adding block #{block.index} to the chain"
+    puts "Hash: #{block.hash}"
+
+    return block
   end
 end
